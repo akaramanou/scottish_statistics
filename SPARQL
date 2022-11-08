@@ -1,0 +1,22 @@
+PREFIX sdmx-dim: <http://purl.org/linked-data/sdmx/2009/dimension#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+SELECT DISTINCT ?ds
+WHERE {
+  ?obs qb:dataSet ?ds;
+    sdmx-dim:refArea
+      [?m <http://statistics.gov.scot/def/foi/collection/data-zones-2011>].
+  OPTIONAL{
+    ?obs sdmx-dim:refPeriod <http://reference.data.gov.uk/id/year/2015>}.
+  OPTIONAL{
+    ?obs sdmx-dim:refPeriod <http://reference.data.gov.uk/id/government-year/2014-2015>}.
+  OPTIONAL{
+    ?obs sdmx-dim:refPeriod <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>}.
+  OPTIONAL{
+    ?obs <http://purl.org/linked-data/cube#measureType> <http://statistics.gov.scot/def/measure-properties/ratio>}.      
+  OPTIONAL{
+    ?obs <http://purl.org/linked-data/cube#measureType> <http://statistics.gov.scot/def/measure-properties/percent>}.
+  OPTIONAL{
+    ?obs <http://purl.org/linked-data/cube#measureType> <http://statistics.gov.scot/def/measure-properties/mean>}.
+  OPTIONAL{
+    ?obs <http://purl.org/linked-data/cube#measureType> <http://statistics.gov.scot/def/measure-properties/rank>}.
+}
