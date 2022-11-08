@@ -1,0 +1,294 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdmx: <http://purl.org/linked-data/sdmx/2009/concept#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?area ?price15
+?traveltimes_public_gp15
+?traveltimes_public_postoffice15
+?traveltimes_public_postoffice15
+?traveltimes_public_retailcentre15
+?traveltimes_car_gp15
+?traveltimes_car_petrolstation15
+?traveltimes_car_postoffice15
+?traveltimes_car_primaryschool15
+?traveltimes_car_secondaryschool15
+?traveltimes_car_retailcentre15
+?firetypeofincident_all_chimney_ratio1415
+?firetypeofincident_all_dwelling_ratio1415
+?firetypeofincident_all_otherbuilding_ratio1415
+?firetypeofincident_all_otherprimary_ratio1415
+?firetypeofincident_all_outdoor_ratio1415
+?firetypeofincident_all_refuse_ratio1415
+?firetypeofincident_all_vehicle_ratio1415
+?firetypeofincident_accidental_chimney_ratio1415
+?firetypeofincident_accidental_dwelling_ratio1415
+?firetypeofincident_accidental_otherbuilding_ratio1415
+?firetypeofincident_accidental_otherprimary_ratio1415
+?firetypeofincident_accidental_outdoor_ratio1415
+?firetypeofincident_accidental_refuse_ratio1415
+?firetypeofincident_accidental_vehicle_ratio1415
+?firetypeofincident_notaccidental_chimney_ratio1415
+?firetypeofincident_notaccidental_dwelling_ratio1415
+ ?firetypeofincident_notaccidental_otherbuilding_ratio1415
+?firetypeofincident_notaccidental_otherprimary_ratio1415
+?firetypeofincident_notaccidental_outdoor_ratio1415
+?firetypeofincident_notaccidental_refuse_ratio1415
+?firetypeofincident_notaccidental_vehicle_ratio1415
+
+WHERE {
+  {
+ ?z qb:dataSet <http://statistics.gov.scot/data/house-sales-prices>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area.
+ ?area <http://publishmydata.com/def/ontology/foi/memberOf> <http://statistics.gov.scot/def/foi/collection/data-zones-2011> .
+ ?z <http://statistics.gov.scot/def/measure-properties/mean> ?price15.
+ }
+{
+?a qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_public_gp15;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/public-transport>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/gp>.
+ }
+{
+?a1 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/public-transport>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/post-office>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_public_postoffice15.
+ }
+{
+?a2 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/public-transport>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/retail-centre>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_public_retailcentre15.
+ }
+{
+?a3 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/gp>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_gp15.
+ }
+{
+?a4 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/petrol-station>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_petrolstation15.
+ }
+{
+?a5 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/post-office>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_postoffice15.
+ }
+{
+?a6 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/primary-school>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_primaryschool15.
+ }
+{
+?a7 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/secondary-school>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_secondaryschool15.
+ }
+{
+?a8 qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---geographic-access-to-services-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/methodOfTravel> <http://statistics.gov.scot/def/concept/method-of-travel/car>;
+<http://statistics.gov.scot/def/dimension/destination>  <http://statistics.gov.scot/def/concept/destination/retail-centre>;
+<http://statistics.gov.scot/def/measure-properties/mean> ?traveltimes_car_retailcentre15.
+ }
+ {
+?b21 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/chimney-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_chimney_ratio1415.
+ }
+ {
+?b22 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/dwelling-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_dwelling_ratio1415.
+ }
+ {
+?b23 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/other-building-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_otherbuilding_ratio1415.
+ }
+ {
+?b24 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/other-primary-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_otherprimary_ratio1415.
+ }
+ {
+?b25 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/outdoor-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_outdoor_ratio1415.
+ }
+ {
+?b26 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/refuse-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_refuse_ratio1415.
+ }
+ {
+?b27 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/all>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/vehicle-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_all_vehicle_ratio1415.
+ }
+ {
+?b28 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/chimney-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_chimney_ratio1415.
+ }
+ {
+?b29 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/dwelling-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_dwelling_ratio1415.
+ }
+ {
+?b30 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/other-building-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_otherbuilding_ratio1415.
+ }
+ {
+?b31 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/chimney-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_otherprimary_ratio1415.
+ }
+ {
+?b32 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/outdoor-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_outdoor_ratio1415.
+ }
+ {
+?b33 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/refuse-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_refuse_ratio1415.
+ }
+ {
+?b34 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/vehicle-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_accidental_vehicle_ratio1415.
+ }
+ {
+?b35 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/chimney-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_chimney_ratio1415.
+ }
+ {
+?b36 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/dwelling-fire>;
+ <http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_dwelling_ratio1415.
+ }
+ {
+?b37 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/other-building-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_otherbuilding_ratio1415.
+ }
+ {
+?b38 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area ;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/chimney-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_otherprimary_ratio1415.
+ }
+ {
+?b39 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/outdoor-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_outdoor_ratio1415.
+ }
+ {
+?b40 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/refuse-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_refuse_ratio1415.
+ }
+ {
+?b41 qb:dataSet <http://statistics.gov.scot/data/fire---type-of-incident>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+   <http://statistics.gov.scot/def/dimension/accidentStatus> <http://statistics.gov.scot/def/concept/accident-status/not-accidental>;
+<http://statistics.gov.scot/def/dimension/typeOfFire> <http://statistics.gov.scot/def/concept/type-of-fire/vehicle-fire>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?firetypeofincident_notaccidental_vehicle_ratio1415.
+ }
+
+ }
