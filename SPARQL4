@@ -1,0 +1,173 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdmx: <http://purl.org/linked-data/sdmx/2009/concept#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?area ?price15 
+?householdestimates_totaldwellings_count15 
+?householdestimates_longtermempty_count15 
+?householdestimates_occupied_count15 
+?householdestimates_secondhomes_count15 
+?householdestimates_vacant_count15 
+?householdestimates_occupiedexemptions_count15 
+?householdestimates_unoccupiedexemptions_count15
+?householdestimates_singleadultdiscounts_count15 
+?householdestimates_longtermempty_ratio15 
+?householdestimates_occupied_ratio15 
+?householdestimates_secondhomes_ratio15 
+?householdestimates_vacant_ratio15 
+?householdestimates_occupiedexemptions_ratio15 
+?householdestimates_unoccupiedexemptions_ratio15 
+?householdestimates_singleadultdiscounts_ratio15 
+?crimeindicators_count1415 
+?crimeindicators_ratio1415 
+?employmentdeprivation_count1415 
+?employmentdeprivation_ratio1415
+
+WHERE {
+
+{
+?z qb:dataSet <http://statistics.gov.scot/data/house-sales-prices>;
+<http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+<http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area.
+?area <http://publishmydata.com/def/ontology/foi/memberOf> <http://statistics.gov.scot/def/foi/collection/data-zones-2011> .
+?z <http://statistics.gov.scot/def/measure-properties/mean> ?price15 .
+}
+
+{
+?q qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/total-dwellings>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_totaldwellings_count15.
+ }
+{
+?q1 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-long-term-empty>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_longtermempty_count15.
+ }
+{
+?q2 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-occupied>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_occupied_count15.
+ }
+{
+?q3 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-second-homes>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_secondhomes_count15.
+ }
+{
+?q4 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-vacant>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_vacant_count15.
+ }
+{
+?q5 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-occupied-exemptions>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_occupiedexemptions_count15.
+ }
+{
+?q6 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+  <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-unoccupied-exemptions>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_unoccupiedexemptions_count15.
+ }
+{
+?q7 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-single-adult-discounts>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_singleadultdiscounts_count15.
+ }
+{
+?q8 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-long-term-empty>;
+ <http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_longtermempty_ratio15.
+ }
+  {
+?q9 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-occupied>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_occupied_ratio15.
+ }
+{
+?q10 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-second-homes>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_secondhomes_ratio15.
+ }
+{
+?q11 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/which-are-vacant>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_vacant_ratio15.
+ }
+  {
+?q12 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-occupied-exemptions>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_occupiedexemptions_ratio15.
+ }
+{
+?q13 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-unoccupied-exemptions>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_unoccupiedexemptions_ratio15.
+ }
+{
+?q14 qb:dataSet <http://statistics.gov.scot/data/household-estimates>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/dimension/indicator(dwellings)> <http://statistics.gov.scot/def/concept/indicator-dwellings/with-single-adult-discounts>;
+<http://statistics.gov.scot/def/measure-properties/count> ?householdestimates_singleadultdiscounts_ratio15.
+ }
+{
+?r qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---crime-indicators>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/measure-properties/count> ?crimeindicators_count1415.
+ }
+{
+?s qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---crime-indicators>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?crimeindicators_ratio1415.
+ }
+{
+?t qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---employment-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/measure-properties/count> ?employmentdeprivation_count1415.
+ }
+{
+?u qb:dataSet <http://statistics.gov.scot/data/scottish-index-of-multiple-deprivation---employment-indicators>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/government-year/2014-2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?employmentdeprivation_ratio1415.
+ }
+
+  }
