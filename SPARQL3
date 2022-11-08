@@ -1,0 +1,252 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdmx: <http://purl.org/linked-data/sdmx/2009/concept#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?area ?price15
+?landarea_count14
+?urbanruralclassification_rank16
+?ageatfirstbirth_19yearsnadunder_count14151617
+?ageatfirstbirth_35yearsnadover_count14151617
+?ageatfirstbirth_all_count14151617
+?ageatfirstbirth_19yearsnadunder_ratio14151617
+?ageatfirstbirth_35yearsnadover_ratio14151617
+?AnteNatalSmoking_currentsmoker_count1416
+?AnteNatalSmoking_formersmoker_count1416
+?AnteNatalSmoking_neversmoked_count1416
+?AnteNatalSmoking_currentsmoker_ratio1416
+?AnteNatalSmoking_formersmoker_ratio1416
+?AnteNatalSmoking_neversmoked_ratio1416
+?LowBirthweight_livesingletonbirths_count1416
+?LowBirthweight_lowweightbirths_count1416
+?lowbirthweight_lowweightbirths_ratio1416
+?dwellingshectare_ratio15
+?dwellingsbytype_all_count15
+?dwellingsbytype_detached_count15
+?dwellingsbytype_flats_count15
+?dwellingsbytype_semidetached_count15
+?dwellingsbytype_terraced_count15
+?dwellingsbytype_unknown_count15
+?dwellingsbytype_detached_ratio15
+?dwellingsbytype_flats_ratio15
+?dwellingsbytype_semidetached_ratio15
+?dwellingsbytype_terraced_ratio15
+?dwellingsbytype_unknown_ratio15
+?AnteNatalSmoking_notknownifsmoking_count1416
+WHERE{
+  {
+  ?area <http://publishmydata.com/def/ontology/foi/memberOf> <http://statistics.gov.scot/def/foi/collection/data-zones-2011> .
+ }
+  {
+?z qb:dataSet <http://statistics.gov.scot/data/house-sales-prices>;
+<http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+<http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area.
+?z <http://statistics.gov.scot/def/measure-properties/mean> ?price15 .
+}
+{
+?g qb:dataSet <http://statistics.gov.scot/data/land-area-2011-data-zone-based>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2014>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/measure-properties/count> ?landarea_count14.
+ }
+ {
+?h qb:dataSet <http://statistics.gov.scot/data/urban-rural-classification>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2016>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/measure-properties/rank> ?urbanruralclassification_rank16.
+ }
+OPTIONAL{
+?i qb:dataSet <http://statistics.gov.scot/data/age-at-first-birth>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-04-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/dimension/age> <http://statistics.gov.scot/def/concept/age/19-years-and-under>;
+<http://statistics.gov.scot/def/measure-properties/count> ?ageatfirstbirth_19yearsnadunder_count14151617.
+ }
+OPTIONAL  {
+?i1 qb:dataSet <http://statistics.gov.scot/data/age-at-first-birth>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-04-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+<http://statistics.gov.scot/def/dimension/age> <http://statistics.gov.scot/def/concept/age/35-years-and-over>;
+<http://statistics.gov.scot/def/measure-properties/count> ?ageatfirstbirth_35yearsnadover_count14151617.
+ }
+OPTIONAL{
+?i2 qb:dataSet <http://statistics.gov.scot/data/age-at-first-birth>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-04-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/age> <http://statistics.gov.scot/def/concept/age/all>;
+<http://statistics.gov.scot/def/measure-properties/count> ?ageatfirstbirth_all_count14151617.
+ }
+ OPTIONAL{
+?i3 qb:dataSet <http://statistics.gov.scot/data/age-at-first-birth>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-04-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/age> <http://statistics.gov.scot/def/concept/age/19-years-and-under>;
+<http://statistics.gov.scot/def/measure-properties/count> ?ageatfirstbirth_19yearsnadunder_ratio14151617.
+ }
+OPTIONAL{
+?i4 qb:dataSet <http://statistics.gov.scot/data/age-at-first-birth>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-04-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/age> <http://statistics.gov.scot/def/concept/age/35-years-and-over>;
+<http://statistics.gov.scot/def/measure-properties/count> ?ageatfirstbirth_35yearsnadover_ratio14151617.
+ }
+OPTIONAL  {
+?k qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/current-smoker>;
+<http://statistics.gov.scot/def/measure-properties/count> ?AnteNatalSmoking_currentsmoker_count1416.
+ }
+OPTIONAL{
+?k1 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/former-smoker>;
+ <http://statistics.gov.scot/def/measure-properties/count> ?AnteNatalSmoking_formersmoker_count1416.
+ }
+  OPTIONAL{
+?k2 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/never-smoked>;
+ <http://statistics.gov.scot/def/measure-properties/count> ?AnteNatalSmoking_neversmoked_count1416.
+ }
+OPTIONAL{
+?k4 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/current-smoker>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?AnteNatalSmoking_currentsmoker_ratio1416.
+ }
+  OPTIONAL{
+?k5 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/former-smoker>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?AnteNatalSmoking_formersmoker_ratio1416.
+ }
+OPTIONAL{
+?k6 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/never-smoked>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?AnteNatalSmoking_neversmoked_ratio1416.
+ }
+ OPTIONAL {
+?l qb:dataSet <http://statistics.gov.scot/data/low-birthweight>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/birthWeight> <http://statistics.gov.scot/def/concept/birth-weight/live-singleton-births>;
+<http://statistics.gov.scot/def/measure-properties/count> ?LowBirthweight_livesingletonbirths_count1416.
+ }
+OPTIONAL{
+?l2 qb:dataSet <http://statistics.gov.scot/data/low-birthweight>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/birthWeight> <http://statistics.gov.scot/def/concept/birth-weight/low-weight-births>;
+ <http://statistics.gov.scot/def/measure-properties/count> ?LowBirthweight_lowweightbirths_count1416.
+ }
+ OPTIONAL {
+?l3 qb:dataSet <http://statistics.gov.scot/data/low-birthweight>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/birthWeight> <http://statistics.gov.scot/def/concept/birth-weight/low-weight-births>;
+<http://statistics.gov.scot/def/measure-properties/count> ?lowbirthweight_lowweightbirths_ratio1416.
+ }
+{
+?n qb:dataSet <http://statistics.gov.scot/data/dwellings-hectare>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+  <http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingshectare_ratio15.
+ }
+  {
+?o qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/all>;
+  <http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_all_count15.
+ }
+{
+?o1 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/detached>;
+<http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_detached_count15.
+ }
+  {
+?o2 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/flats>;
+<http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_flats_count15.
+ }
+{
+?o3 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/semi-detached>;
+<http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_semidetached_count15.
+ }
+  {
+?o4 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/terraced>;
+ <http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_terraced_count15.
+ }
+{
+?o5 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/unknown>;
+<http://statistics.gov.scot/def/measure-properties/count> ?dwellingsbytype_unknown_count15.
+ }
+{
+?o6 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/detached>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingsbytype_detached_ratio15.
+ }
+  {
+?o7 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/flats>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingsbytype_flats_ratio15.
+ }
+{
+?o8 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+ <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/semi-detached>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingsbytype_semidetached_ratio15.
+ }
+{
+?o9 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/terraced>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingsbytype_terraced_ratio15.
+ }
+  {
+?o10 qb:dataSet <http://statistics.gov.scot/data/dwellings-type>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/year/2015>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/typeOfDwelling> <http://statistics.gov.scot/def/concept/type-of-dwelling/unknown>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?dwellingsbytype_unknown_ratio15.
+ }
+OPTIONAL{
+?k7 qb:dataSet <http://statistics.gov.scot/data/smoking-at-booking>;
+    <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> <http://reference.data.gov.uk/id/gregorian-interval/2014-01-01T00:00:00/P3Y>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?area;
+     <http://statistics.gov.scot/def/dimension/populationGroup> <http://statistics.gov.scot/def/concept/population-group/not-known-if-smoking>;
+<http://statistics.gov.scot/def/measure-properties/ratio> ?AnteNatalSmoking_notknownifsmoking_count1416.
+ }
+  }
