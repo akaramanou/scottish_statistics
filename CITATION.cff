@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  SPARQL queries for acquiring Integrated Statistical
+  Indicators from Scottish Linked Open Government
+  Data
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Areti
+    family-names: Karamanou
+    email: akarm@uom.edu.gr
+    affiliation: University of Macedonia
+    orcid: 'https://orcid.org/0000-0003-2357-9169'
+  - given-names: Evangelos
+    family-names: Kalampokis
+    email: ekal@uom.edu.gr
+    affiliation: University of Macedonia
+    orcid: 'https://orcid.org/0000-0003-4416-8764'
+  - given-names: Konstantinos
+    family-names: Tarabanis
+    email: kat@uom.edu.gr
+    affiliation: University of Macedonia
+    orcid: 'https://orcid.org/0000-0002-4663-2113'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo7304041
